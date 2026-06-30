@@ -45,11 +45,11 @@ export default function Home() {
     <div className="min-h-screen flex flex-col">
       {/* Header */}
       <header className="border-b border-gray-200 bg-white">
-        <div className="max-w-4xl mx-auto px-6 py-5">
-          <div className="flex items-center gap-3">
-            <div className="w-9 h-9 bg-blue-600 rounded-lg flex items-center justify-center">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 py-3 sm:py-5">
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="w-8 h-8 sm:w-9 sm:h-9 bg-blue-600 rounded-lg flex items-center justify-center">
               <svg
-                className="w-5 h-5 text-white"
+                className="w-4 h-4 sm:w-5 sm:h-5 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -63,10 +63,10 @@ export default function Home() {
               </svg>
             </div>
             <div>
-              <h1 className="text-xl font-semibold text-gray-900">
+              <h1 className="text-lg sm:text-xl font-semibold text-gray-900">
                 Digital FTE Agent
               </h1>
-              <p className="text-sm text-gray-500">
+              <p className="text-xs sm:text-sm text-gray-500">
                 AI-Powered LinkedIn Post Generator
               </p>
             </div>
@@ -75,16 +75,16 @@ export default function Home() {
       </header>
 
       {/* Main */}
-      <main className="flex-1 max-w-4xl mx-auto w-full px-6 py-10">
+      <main className="flex-1 max-w-4xl mx-auto w-full px-3 sm:px-6 py-6 sm:py-10">
         {/* Input Section */}
-        <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+        <div className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 shadow-sm">
           <label
             htmlFor="topic"
             className="block text-sm font-medium text-gray-700 mb-2"
           >
             Topic
           </label>
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-2 sm:gap-3">
             <input
               id="topic"
               type="text"
@@ -92,7 +92,7 @@ export default function Home() {
               onChange={(e) => setTopic(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleGenerate()}
               placeholder="e.g. AI trends in 2026, startup fundraising tips..."
-              className="flex-1 px-4 py-2.5 border border-gray-300 rounded-lg text-sm
+              className="flex-1 px-3 sm:px-4 py-2 sm:py-2.5 border border-gray-300 rounded-lg text-sm
                          focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500
                          placeholder:text-gray-400 transition-colors"
               disabled={loading}
@@ -100,10 +100,10 @@ export default function Home() {
             <button
               onClick={handleGenerate}
               disabled={loading || !topic.trim()}
-              className="px-6 py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg
+              className="px-4 sm:px-6 py-2 sm:py-2.5 bg-blue-600 text-white text-sm font-medium rounded-lg
                          hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500
                          focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed
-                         transition-colors flex items-center gap-2"
+                         transition-colors flex items-center justify-center gap-2 whitespace-nowrap"
             >
               {loading ? (
                 <>
@@ -126,7 +126,8 @@ export default function Home() {
                       d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z"
                     />
                   </svg>
-                  Generating...
+                  <span className="hidden sm:inline">Generating...</span>
+                  <span className="sm:hidden">Generating</span>
                 </>
               ) : (
                 <>
@@ -152,14 +153,14 @@ export default function Home() {
 
         {/* Error */}
         {error && (
-          <div className="mt-6 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg text-sm">
+          <div className="mt-4 sm:mt-6 bg-red-50 border border-red-200 text-red-700 px-3 sm:px-4 py-2 sm:py-3 rounded-lg text-sm">
             {error}
           </div>
         )}
 
         {/* Generated Post */}
         {post && (
-          <div className="mt-6">
+          <div className="mt-4 sm:mt-6">
             <div className="flex items-center justify-between mb-2">
               <h2 className="text-sm font-medium text-gray-700">
                 Generated LinkedIn Post
@@ -185,7 +186,7 @@ export default function Home() {
                 Copy
               </button>
             </div>
-            <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+            <div className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 shadow-sm">
               <div className="text-sm text-gray-800 leading-relaxed whitespace-pre-wrap">
                 {post}
               </div>
@@ -196,9 +197,9 @@ export default function Home() {
 
       {/* Footer */}
       <footer className="border-t border-gray-200 bg-white">
-        <div className="max-w-4xl mx-auto px-6 py-4">
+        <div className="max-w-4xl mx-auto px-3 sm:px-6 py-3 sm:py-4">
           <p className="text-xs text-gray-400 text-center">
-            Digital FTE Agent &mdash; Powered by AI
+            Digital FTE Agent — Powered by AI
           </p>
         </div>
       </footer>
