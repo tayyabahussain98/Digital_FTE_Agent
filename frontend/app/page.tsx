@@ -16,7 +16,7 @@ export default function Home() {
     setPost("");
 
     try {
-      const response = await fetch("http://localhost:8000/generate-post", {
+      const response = await fetch("https://tayyaba98-digital-fte-agent-backend.hf.space/generate-post", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
